@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Телефон{% endblock %}
+{% block content %}
+    <div class="container">
+        <div class="header">
+            <h1 style="color:#007bff">Телефон</h1>
+        </div>
+        <div class="content">
+            <td>
+                {% for info in phone %}
+                    <tr>
+                        <h3> {{ info.name }} </h3>
+                        <img src={{ info.image }} height="550">
+                        {% if inf.lte_exist is True %}
+                            <p style=""><span style="font-weight: 600">Поддержка LTE - </span> Есть </p>
+                        {% else %}
+                            <p><span style="font-weight: 900">Поддержка LTE - </span> Нет </p>
+                        {% endif %}
+                        <p><span style="font-weight: 900">Дата выхода - </span> {{ info.release_date }}</p>
+                        <p><span style="font-weight: 900">Стоимость:</span> {{ info.price }}р. </p>
+                    </tr>
+                {% endfor %}
+            </td>
+
+        </div>
+    </div>
+{% endblock %}
